@@ -1,5 +1,3 @@
-markdown
-Copiar código
 # Sistema de Gestão de Cursos
 
 Este é um sistema simples de gestão de cursos desenvolvido com Flask e SQLAlchemy, usando PostgreSQL como banco de dados.
@@ -27,42 +25,37 @@ sistema_cursos/
 └── README.md
 Configuração do Ambiente
 Clone o repositório:
-
 bash
 Copiar código
 git clone https://github.com/seu-usuario/sistema_cursos.git
 cd sistema_cursos
 Crie e ative um ambiente virtual:
-
 bash
 Copiar código
 python3 -m venv venv
 source venv/bin/activate  # No Windows use `venv\Scripts\activate`
 Instale as dependências:
-
 bash
 Copiar código
 pip install -r requirements.txt
 Configuração do Banco de Dados:
-
 Assegure-se de que você tem uma instância do PostgreSQL rodando e crie um banco de dados chamado postgres. Altere a string de conexão em app.py se necessário.
 
 python
-Copiar código
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:senha@localhost:5432/postgres'
 Inicialize o banco de dados:
-
 bash
 Copiar código
 python3 app.py
+
 Uso
 Inicie o servidor Flask:
 
 bash
-Copiar código
+
 python3 app.py
 Acesse o aplicativo no navegador:
-
 Abra seu navegador e vá para http://127.0.0.1:5000.
 
 Estrutura do Banco de Dados
