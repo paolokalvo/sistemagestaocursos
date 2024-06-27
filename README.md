@@ -123,4 +123,4 @@ Este projeto está licenciado sob a MIT License.
 
 ## Contato
 
-Para mais informações, entre em contato com seu-nome.
+Para mais informações, entre em contato com paolo.
