@@ -30,7 +30,7 @@ sistema_cursos/
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/sistema_cursos.git
+[(https://github.com/paolokalvo/sistemagestaocursos.git)]()
 cd sistema_cursos
 ```
 
