@@ -1,3 +1,5 @@
+markdown
+Copiar código
 # Sistema de Gestão de Cursos
 
 Este é um sistema simples de gestão de cursos desenvolvido com Flask e SQLAlchemy, usando PostgreSQL como banco de dados.
@@ -43,70 +45,58 @@ Copiar código
 pip install -r requirements.txt
 Configuração do Banco de Dados:
 
-Certifique-se de ter o PostgreSQL instalado e em execução.
-Crie um banco de dados chamado postgres.
-Atualize a string de conexão no arquivo app.py com as credenciais corretas do banco de dados.
-Estrutura do Banco de Dados
-O banco de dados é composto pelos seguintes esquemas e tabelas:
+Assegure-se de que você tem uma instância do PostgreSQL rodando e crie um banco de dados chamado postgres. Altere a string de conexão em app.py se necessário.
 
-sql
+python
 Copiar código
-CREATE SCHEMA sistema_cursos;
-
-CREATE TABLE sistema_cursos.clientes (
-    cliente_id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    telefone VARCHAR(15)
-);
-
-CREATE TABLE sistema_cursos.cursos (
-    curso_id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    descricao TEXT,
-    preco NUMERIC(10, 2) NOT NULL
-);
-
-CREATE TABLE sistema_cursos.vendedores (
-    vendedor_id SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE sistema_cursos.vendas (
-    venda_id SERIAL PRIMARY KEY,
-    cliente_id INT NOT NULL REFERENCES sistema_cursos.clientes(cliente_id),
-    curso_id INT NOT NULL REFERENCES sistema_cursos.cursos(curso_id),
-    vendedor_id INT NOT NULL REFERENCES sistema_cursos.vendedores(vendedor_id),
-    data_venda DATE NOT NULL
-);
-Executando o Projeto
-Inicialize o banco de dados e crie as tabelas:
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:senha@localhost:5432/postgres'
+Inicialize o banco de dados:
 
 bash
 Copiar código
-python app.py
-Acesse a aplicação:
+python3 app.py
+Uso
+Inicie o servidor Flask:
 
-Abra o navegador e acesse http://localhost:5000.
+bash
+Copiar código
+python3 app.py
+Acesse o aplicativo no navegador:
 
-Estrutura de Arquivos
-app.py: Arquivo principal do aplicativo Flask.
-templates/: Diretório que contém os arquivos HTML dos templates.
-Arquivos HTML (Templates)
-base.html: Template base que é estendido pelos outros templates.
-cliente_form.html: Formulário para adicionar um novo cliente.
-curso_form.html: Formulário para adicionar um novo curso.
-vendedor_form.html: Formulário para adicionar um novo vendedor.
-venda_form.html: Formulário para adicionar uma nova venda.
-index.html: Página inicial da aplicação.
-Contribuição
-Sinta-se à vontade para contribuir com o projeto. Para isso:
+Abra seu navegador e vá para http://127.0.0.1:5000.
 
-Fork o projeto
-Crie uma branch para sua feature (git checkout -b feature/fooBar)
-Commit suas alterações (git commit -am 'Add some fooBar')
-Push para a branch (git push origin feature/fooBar)
-Crie um novo Pull Request
+Estrutura do Banco de Dados
+O banco de dados PostgreSQL contém as seguintes tabelas:
+
+Clientes
+Campo	Tipo	Descrição
+cliente_id	SERIAL (PK)	Identificador único
+nome	VARCHAR(100)	Nome do cliente
+email	VARCHAR(100)	Email do cliente
+telefone	VARCHAR(15)	Telefone do cliente
+Cursos
+Campo	Tipo	Descrição
+curso_id	SERIAL (PK)	Identificador único
+nome	VARCHAR(100)	Nome do curso
+descricao	TEXT	Descrição do curso
+preco	NUMERIC(10, 2)	Preço do curso
+Vendedores
+Campo	Tipo	Descrição
+vendedor_id	SERIAL (PK)	Identificador único
+nome	VARCHAR(100)	Nome do vendedor
+email	VARCHAR(100)	Email do vendedor
+Vendas
+Campo	Tipo	Descrição
+venda_id	SERIAL (PK)	Identificador único
+cliente_id	INTEGER (FK)	Referência para o cliente
+curso_id	INTEGER (FK)	Referência para o curso
+vendedor_id	INTEGER (FK)	Referência para o vendedor
+data_venda	DATE	Data da venda
+Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
 Licença
 Este projeto está licenciado sob a MIT License.
+
+Contato
+Para mais informações, entre em contato com seu-nome.
